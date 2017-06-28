@@ -1,0 +1,24 @@
+<header>
+  <a href="#">Home</a>
+  <a [routerLink]="['/new_question']">Add a Question</a>
+  <a href='#'(click)='logOut()'>Logout</a>
+</header>
+<div class="playBox">
+  <button [routerLink]="['/lets_play']">Play!</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let attempt of allAttemps">
+      <td>{{attempt._user.name}}</td>
+      <td>{{attempt.score}}</td>
+      <td>{{attempt.percentage}}%</td>
+    </tr>
+  </tbody>
+</table>

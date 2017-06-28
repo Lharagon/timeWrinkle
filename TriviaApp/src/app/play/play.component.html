@@ -1,0 +1,18 @@
+<header>
+  <p>Hi {{currentUser.name}}</p>
+  <p>Chose an answer for each of the questions and submit the test once done.</p>
+  <p>Good luck!</p>
+  <h3 *ngIf='errorMess'>{{errorMess}}</h3>
+</header>
+<main>
+  <form (submit)='onSubmit(formData)' #formData = 'ngForm'>
+    <div class="question" *ngFor="let question of allQuestions; let i = index">
+      <p>{{question.question}}</p>
+      <input type="radio" name={{i}} ngModel [value]="question.answer">{{question.answer}}<br>
+      <input type="radio" name={{i}} ngModel [value]="question.fAnswer1">{{question.fAnswer1}}<br>
+      <input type="radio" name={{i}} ngModel [value]="question.fAnswer2">{{question.fAnswer2}}
+    </div>
+    <button type="button" [routerLink]="['/']">Cancel</button>
+    <input type="submit" value="Submit">
+  </form>
+</main>
